@@ -1,19 +1,14 @@
 const mongoose = require('mongoose')
 
-const UserSchema = mongoose.Schema({
+const CategorySchema = mongoose.Schema({
     id: Number,
-    email: String,
-    password: String,
     name: String,
-    role: String,
-    avatar: String,
-    creationAt: String,
-    updatedAt: String
+    image: String,
 },
 {
     timestamps: true
 })
 
-const User = mongoose.model("users", UserSchema)
+const Category = mongoose.model("categories", CategorySchema)
 
-module.exports = User
+module.exports = Category

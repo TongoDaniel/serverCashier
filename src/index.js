@@ -1,19 +1,20 @@
-const serverCashierRoute = require('./routes/serverCashier.route')
 const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-
 const app = express()
-const PORT = process.env.PORT || 5000
-
-require('dotenv').config()
+const cors = require('cors')
 
 app.use(cors({
     origin: "*"
 }))
-app.use(bodyParser.json())
 
+const mongoose = require('mongoose')
+require('dotenv').config()
+
+const serverCashierRoute = require('./routes/serverCashier.route')
+const bodyParser = require('body-parser')
+
+const PORT = process.env.PORT || 5000
+
+app.use(bodyParser.json())
 app.use("/", serverCashierRoute)
 
 // Connect to MongoDb
@@ -31,12 +32,3 @@ async function db() {
 }
 
 db();
-
-// const itemSchema = new mongoose.Schema({
-//     id: Number,
-//     name: String,
-//     image: String
-// })
-
-// const Item = mongoose.model('users', itemSchema)
-
