@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const CommandSchema = mongoose.Schema({
     // idCommand: Number,
-    // orderProducts: [{
+    orderProducts: [{
         idProduct: {
             type: String,
             require: true,
@@ -27,7 +27,7 @@ const CommandSchema = mongoose.Schema({
             type: String,
             require: true,
         },
-    // }]
+    }]
 },
 {
     timestamps: true
